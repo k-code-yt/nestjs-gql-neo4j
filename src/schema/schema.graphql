@@ -1,0 +1,16 @@
+input PersonInput {
+  id: Int
+  email: String
+  name: String
+}
+
+type Person {
+  id: Int
+  email: String
+  name: String
+}
+
+type Query {
+  helloWorld: String
+  getPerson: Person
+}
