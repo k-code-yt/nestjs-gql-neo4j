@@ -2,6 +2,6 @@
 
 [x] install nestjs([https://docs.nestjs.com/](https://docs.nestjs.com/))
 [x] install graphql deps([https://docs.nestjs.com/graphql/quick-start#installation](https://docs.nestjs.com/graphql/quick-start#installation))
-[] add gql module and its options
-[] add generate-typings file and new script
-[] add basic resolver
+[x] add gql module and its options
+[x] add generate-typings file and new script
+[x] add basic resolver
