@@ -1,7 +1,7 @@
-## 1. install nestjs with graphql(schema first approach)
+## 2. dockerize the app
 
-[x] install nestjs([https://docs.nestjs.com/](https://docs.nestjs.com/))
-[x] install graphql deps([https://docs.nestjs.com/graphql/quick-start#installation](https://docs.nestjs.com/graphql/quick-start#installation))
-[] add gql module and its options
-[] add generate-typings file and new script
-[] add basic resolver
+[x] add Dockerfile. Only install node_modules.
+[x] add docker-compose volumes for hot reload
+[] add default port 9229 for the debugger in package.json
+[] test chrome debugger on port 9229
+[] add vscode debugger(launch.json)

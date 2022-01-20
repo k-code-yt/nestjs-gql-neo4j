@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - 8080:3000
+      - 9229:9229
+    command: yarn start:debug
+    volumes:
+      - /app/node_modues
+      - ./src:/app/src
+
+    # nest > nodemon > changes if files
+    # host FS > volumes < container
+
+    # 1. Bind mount
+    # features:
+    # - two way sync
+    # syntax:
+    # ./src:/app/src
+
+    # 2. Persistent volume
+    # features:
+    # - one way sync -> from container to host
+    # - the only sync from host to container happens when we create volume
+    # /var/lib/docker/volumes/{random_hash}/_data
+
+    # types:
+    # A.named
+    #syntax:
+    # postgres
+    # - some_name_for_this_volume:/somedatabasedata.bak
+    # sqlbak
+    # - some_name_for_this_volume:/some_folder_for_backup
+    #features:
+    # - sharing between different containers
+    # - removal of container does not result in volume loss
+    # B.anonymous
+    #syntax:
+    # - /app/node_modues

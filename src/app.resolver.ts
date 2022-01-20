@@ -10,10 +10,14 @@ export class AppResolver {
 
   @Query()
   getPerson(): Person {
+    console.log('debugger is stopped');
+
+    console.log('debugger is running!');
+
     return {
       email: 'kos@gmail.com',
       name: 'kos',
-      id: 1,
+      id: 12312,
     };
   }
 }
