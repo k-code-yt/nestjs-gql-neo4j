@@ -14,3 +14,11 @@ type Query {
   helloWorld: String
   getPerson: Person
 }
+
+type Mutation {
+  addPerson(person: PersonInput): Person
+}
+
+type Subscription {
+  newPerson: Person
+}

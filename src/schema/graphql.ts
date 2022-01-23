@@ -25,4 +25,12 @@ export abstract class IQuery {
     abstract getPerson(): Nullable<Person> | Promise<Nullable<Person>>;
 }
 
+export abstract class IMutation {
+    abstract addPerson(person?: Nullable<PersonInput>): Nullable<Person> | Promise<Nullable<Person>>;
+}
+
+export abstract class ISubscription {
+    abstract newPerson(): Nullable<Person> | Promise<Nullable<Person>>;
+}
+
 type Nullable<T> = T | null;

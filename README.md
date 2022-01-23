@@ -1,7 +1,12 @@
-## 2. dockerize the app
+### What are Subscriptions?
 
-[x] add Dockerfile. Only install node_modules.
-[x] add docker-compose volumes for hot reload
-[] add default port 9229 for the debugger in package.json
-[] test chrome debugger on port 9229
-[] add vscode debugger(launch.json)
+They provide real-time updates from your GraphQL server. Subscription can maintain an active connection to your GraphQL server (most commonly via WebSocket), enabling the server to push updates to the subscription's result.
+
+### Redis. Why? If we have default PubSub from Apollo.
+
+Apollo docs warn that the default implementation is not suitable for production.
+
+Why?
+
+    1. It wouldn’t work with multiple instances of our NestJS server.
+    2. It does not scale beyond a few connections.
