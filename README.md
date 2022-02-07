@@ -1,7 +1,10 @@
-## 2. dockerize the app
+### 4. Add Neo4j Module
 
-[x] add Dockerfile. Only install node_modules.
-[x] add docker-compose volumes for hot reload
-[] add default port 9229 for the debugger in package.json
-[] test chrome debugger on port 9229
-[] add vscode debugger(launch.json)
+- [] Create sandbox and connect neo4j-desktop
+- [] Install dependancies
+- [] Create neo4j module, config interface
+- [] DI in custom providers
+- [] Refactor code - remove neo4j-driver/add utils functions for coonection
+- [] Add Person Module and test DB connection
+- [] Change scope to Request.
+- [] Write down CRUD operations for Person and Movie
