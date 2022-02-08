@@ -1,10 +1,10 @@
 ### 4. Add Neo4j Module
 
-- [] Create sandbox and connect neo4j-desktop
-- [] Install dependancies
-- [] Create neo4j module, config interface
-- [] DI in custom providers
-- [] Refactor code - remove neo4j-driver/add utils functions for coonection
+- [x] Create sandbox and connect neo4j-desktop
+- [x] And ENV file and Install dependancies
+- [x] Create neo4j module, config interface
+- [x] DI in custom providers and make sure DB connection established
+- [x] Refactor code - add utils functions for coonection
 - [] Add Person Module and test DB connection
 - [] Change scope to Request.
 - [] Write down CRUD operations for Person and Movie
