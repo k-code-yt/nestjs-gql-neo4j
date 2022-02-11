@@ -4,8 +4,11 @@ import { Connection } from 'cypher-query-builder';
 import { ConnectionWithDriver, Neo4jConfig } from './neo4j-config.interface';
 import { NEO4J_CONFIG, NEO4J_CONNECTION } from './neo4j.constants';
 import { createDatabaseConfig, ConnecitonError } from './neo4j.utils';
+import { QueryRepository } from './query.repository';
 
-@Module({})
+@Module({
+  providers: [QueryRepository],
+})
 export class Neo4jModule {
   static forRootAsync(customConfig?: Neo4jConfig): DynamicModule {
     return {
@@ -31,13 +34,14 @@ export class Neo4jModule {
               }) as ConnectionWithDriver;
 
               await connection.driver.verifyConnectivity();
-              console.log('SUCCESS');
+              return connection;
             } catch (error) {
               throw new ConnecitonError(error);
             }
           },
         },
       ],
+      exports: [QueryRepository],
     };
   }
 }

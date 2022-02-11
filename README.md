@@ -4,7 +4,8 @@
 - [x] And ENV file and Install dependancies
 - [x] Create neo4j module, config interface
 - [x] DI in custom providers and make sure DB connection established
-- [x] Refactor code - add utils functions for coonection
-- [] Add Person Module and test DB connection
+- [x] Refactor code - add utils functions for connection
+- [x] Add a database repository
+- [x] Add Person Module and test DB connection
 - [] Change scope to Request.
-- [] Write down CRUD operations for Person and Movie
+- [x] Write down CRUD operations for Person and Movie
