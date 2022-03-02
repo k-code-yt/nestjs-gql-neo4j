@@ -12,7 +12,7 @@ import { PersonModule } from './person/person.module';
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       subscriptions: {
-        'graphql-ws': true,
+        'subscriptions-transport-ws': true,
       },
     }),
     PubsubModule,
