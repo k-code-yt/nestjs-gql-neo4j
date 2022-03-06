@@ -11,7 +11,7 @@ export class PersonService {
     private readonly pubsubService: PubSubService,
   ) {}
 
-  async addPerson(person: PersonInput) {
+  async addPerson(person: PersonInput): Promise<Person> {
     const personInstance = await this.personRepository.save(person);
     this.pubsubService.publish<'trackAnyChange'>(
       SUBSCRIPTION_EVENTS.trackAnyChange,

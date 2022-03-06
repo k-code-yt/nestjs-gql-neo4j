@@ -1,11 +1,3 @@
-### Inputs ###
-input PersonInput {
-  name: String
-}
-input SubscriberInput {
-  email: String
-}
-
 ### Types ###
 type Person {
   id: String!
@@ -18,9 +10,18 @@ type Subscriber {
   email: String!
 }
 
+### Inputs ###
+input PersonInput {
+  name: String!
+  title: String!
+  age: Int!
+}
+input SubscriberInput {
+  email: String!
+}
+
 ### Queries ###
 type Query {
-  helloWorld: String
   getPerson: Person!
   getSubscriber: Subscriber!
 }

@@ -1,20 +1,5 @@
 version: '3.8'
 services:
-  ### api ###
-  # api:
-  #   build:
-  #     dockerfile: Dockerfile
-  #     context: .
-  #   ports:
-  #     - 8080:3000
-  #     - 9229:9229
-  #   command: yarn start:debug
-  #   volumes:
-  #     - /app/node_modues
-  #     - ./src:/app/src
-  #   depends_on:
-  #     - redis
-  #   env_file: .env
   ### redis ###
   redis:
     image: 'redis:alpine'
@@ -31,3 +16,19 @@ services:
       POSTGRES_USERNAME: ${DB_USERNAME}
     volumes:
       - .docker-data/postgres:/var/lib/postgresql/data
+
+  ### api ###
+  # api:
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: .
+  #   ports:
+  #     - 8080:3000
+  #     - 9229:9229
+  #   command: yarn start:debug
+  #   volumes:
+  #     - /app/node_modues
+  #     - ./src:/app/src
+  #   depends_on:
+  #     - redis
+  #   env_file: .env

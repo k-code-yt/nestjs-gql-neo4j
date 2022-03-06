@@ -8,11 +8,13 @@
 /* tslint:disable */
 /* eslint-disable */
 export class PersonInput {
-    name?: Nullable<string>;
+    name: string;
+    title: string;
+    age: number;
 }
 
 export class SubscriberInput {
-    email?: Nullable<string>;
+    email: string;
 }
 
 export class Person {
@@ -28,8 +30,6 @@ export class Subscriber {
 }
 
 export abstract class IQuery {
-    abstract helloWorld(): Nullable<string> | Promise<Nullable<string>>;
-
     abstract getPerson(): Person | Promise<Person>;
 
     abstract getSubscriber(): Subscriber | Promise<Subscriber>;
@@ -42,9 +42,7 @@ export abstract class IMutation {
 }
 
 export abstract class ISubscription {
-    abstract trackAnyChange(id?: Nullable<number>): Nullable<Person> | Promise<Nullable<Person>>;
-
-    abstract something(): Nullable<Subscriber> | Promise<Nullable<Subscriber>>;
+    abstract trackAnyChange(): Nullable<Person> | Promise<Nullable<Person>>;
 }
 
 type Nullable<T> = T | null;
