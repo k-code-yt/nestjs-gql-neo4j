@@ -42,7 +42,9 @@ export abstract class IMutation {
 }
 
 export abstract class ISubscription {
-    abstract trackAnyChange(): Nullable<Person> | Promise<Nullable<Person>>;
+    abstract trackAnyChange(id?: Nullable<number>): Nullable<Person> | Promise<Nullable<Person>>;
+
+    abstract something(): Nullable<Subscriber> | Promise<Nullable<Subscriber>>;
 }
 
 type Nullable<T> = T | null;

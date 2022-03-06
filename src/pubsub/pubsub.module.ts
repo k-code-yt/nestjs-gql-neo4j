@@ -30,6 +30,6 @@ export const PUB_SUB = 'PUB_SUB';
     PubsubResolver,
     PubSubService,
   ],
-  exports: [PUB_SUB],
+  exports: [PubSubService],
 })
 export class PubsubModule {}
