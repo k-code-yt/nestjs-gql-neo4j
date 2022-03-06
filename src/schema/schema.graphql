@@ -1,24 +1,37 @@
+### Inputs ###
 input PersonInput {
-  id: Int
-  email: String
   name: String
 }
+input SubscriberInput {
+  email: String
+}
 
+### Types ###
 type Person {
-  id: Int
-  email: String
-  name: String
+  id: String!
+  name: String!
+  title: String!
+  age: Int!
+}
+type Subscriber {
+  id: String!
+  email: String!
 }
 
+### Queries ###
 type Query {
   helloWorld: String
-  getPerson: Person
+  getPerson: Person!
+  getSubscriber: Subscriber!
 }
 
+### Mutations ###
 type Mutation {
-  addPerson(person: PersonInput): Person
+  addPerson(person: PersonInput): Person!
+  addSubscriber(person: SubscriberInput): Subscriber!
 }
 
+### Subscriptions ###
 type Subscription {
-  newPerson: Person
+  trackAnyChange: Person
 }

@@ -64,12 +64,12 @@ describe('PersonResolver', () => {
     expect(resolver).toBeDefined();
   });
 
-  it('should return newPerson on subscription', (done) => {
+  it('should return trackAnyChange on subscription', (done) => {
     gqlClient()
       .subscribe({
         query: gql`
           subscription Subscription {
-            newPerson {
+            trackAnyChange {
               id
               name
               email
@@ -81,9 +81,9 @@ describe('PersonResolver', () => {
         next({ data }) {
           console.log(data);
           const {
-            newPerson: { __typename, ...newPerson },
+            trackAnyChange: { __typename, ...trackAnyChange },
           } = data;
-          expect(newPerson).toEqual(person);
+          expect(trackAnyChange).toEqual(person);
           expect(__typename).toEqual('Person');
           done();
         },

@@ -8,29 +8,41 @@
 /* tslint:disable */
 /* eslint-disable */
 export class PersonInput {
-    id?: Nullable<number>;
-    email?: Nullable<string>;
     name?: Nullable<string>;
 }
 
-export class Person {
-    id?: Nullable<number>;
+export class SubscriberInput {
     email?: Nullable<string>;
-    name?: Nullable<string>;
+}
+
+export class Person {
+    id: string;
+    name: string;
+    title: string;
+    age: number;
+}
+
+export class Subscriber {
+    id: string;
+    email: string;
 }
 
 export abstract class IQuery {
     abstract helloWorld(): Nullable<string> | Promise<Nullable<string>>;
 
-    abstract getPerson(): Nullable<Person> | Promise<Nullable<Person>>;
+    abstract getPerson(): Person | Promise<Person>;
+
+    abstract getSubscriber(): Subscriber | Promise<Subscriber>;
 }
 
 export abstract class IMutation {
-    abstract addPerson(person?: Nullable<PersonInput>): Nullable<Person> | Promise<Nullable<Person>>;
+    abstract addPerson(person?: Nullable<PersonInput>): Person | Promise<Person>;
+
+    abstract addSubscriber(person?: Nullable<SubscriberInput>): Subscriber | Promise<Subscriber>;
 }
 
 export abstract class ISubscription {
-    abstract newPerson(): Nullable<Person> | Promise<Nullable<Person>>;
+    abstract trackAnyChange(): Nullable<Person> | Promise<Nullable<Person>>;
 }
 
 type Nullable<T> = T | null;

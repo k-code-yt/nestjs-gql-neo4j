@@ -2,6 +2,8 @@ import { Global, Module } from '@nestjs/common';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 import { ConfigService, ConfigModule } from '@nestjs/config';
 import { PubSub } from 'graphql-subscriptions';
+import { PubsubResolver } from './pubsub.resolver';
+import { PubSubService } from './pubsub.service';
 
 export const PUB_SUB = 'PUB_SUB';
 
@@ -25,6 +27,8 @@ export const PUB_SUB = 'PUB_SUB';
         });
       },
     },
+    PubsubResolver,
+    PubSubService,
   ],
   exports: [PUB_SUB],
 })

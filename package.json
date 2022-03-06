@@ -27,15 +27,18 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/graphql": "^9.1.2",
     "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/typeorm": "^8.0.3",
     "apollo-server-core": "^3.6.1",
     "apollo-server-express": "^3.6.1",
     "graphql": "^15",
     "graphql-redis-subscriptions": "^2.4.2",
     "graphql-subscriptions": "^2.0.0",
+    "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
-    "ts-morph": "^13.0.2"
+    "ts-morph": "^13.0.2",
+    "typeorm": "^0.2.45"
   },
   "devDependencies": {
     "@apollo/client": "^3.5.10",
