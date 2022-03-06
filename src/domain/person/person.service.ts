@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { SUBSCRIPTION_EVENTS } from 'src/pubsub/pubsub.constants';
 import { PubSubService } from 'src/pubsub/pubsub.service';
-import { Person, PersonInput } from 'src/schema/graphql';
+import { Entities, Person, PersonInput } from 'src/schema/graphql';
 import { PersonRepository } from './person.repository';
 
 @Injectable()
@@ -16,9 +16,10 @@ export class PersonService {
     this.pubsubService.publish<'trackAnyChange'>(
       SUBSCRIPTION_EVENTS.trackAnyChange,
       {
-        trackAnyChange: personInstance,
+        trackAnyChange: { ...personInstance, __typename: Entities.Person },
       },
     );
+
     return personInstance;
   }
 }

@@ -6,4 +6,5 @@ definitionsFactory.generate({
   typePaths: ['./src/**/*.graphql'],
   path: join(process.cwd(), 'src/schema/graphql.ts'),
   outputAs: 'class',
+  emitTypenameField: true,
 });

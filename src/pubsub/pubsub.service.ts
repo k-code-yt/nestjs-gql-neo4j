@@ -11,7 +11,9 @@ export class PubSubService {
     private readonly pubSubProvider: RedisPubSub,
   ) {}
 
-  public publish<SubFunctionName extends keyof ISubscription>(
+  public publish<
+    SubFunctionName extends keyof Omit<ISubscription, '__typename'>,
+  >(
     trigger: SUBSCRIPTION_EVENTS,
     payload: {
       [key in SubFunctionName]: ReturnType<ISubscription[SubFunctionName]>;

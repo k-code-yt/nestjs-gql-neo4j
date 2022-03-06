@@ -10,6 +10,12 @@ type Subscriber {
   email: String!
 }
 
+### Entities ###
+enum Entities {
+  Person
+  Subscriber
+}
+
 ### Inputs ###
 input PersonInput {
   name: String!
@@ -20,6 +26,9 @@ input SubscriberInput {
   email: String!
 }
 
+### Union ###
+union TrackAnyChangeResult = Person | Subscriber
+
 ### Queries ###
 type Query {
   getPerson: Person!
@@ -29,10 +38,10 @@ type Query {
 ### Mutations ###
 type Mutation {
   addPerson(person: PersonInput): Person!
-  addSubscriber(person: SubscriberInput): Subscriber!
+  addSubscriber(subscriber: SubscriberInput): Subscriber!
 }
 
 ### Subscriptions ###
 type Subscription {
-  trackAnyChange: Person
+  trackAnyChange: TrackAnyChangeResult!
 }

@@ -7,6 +7,11 @@
 
 /* tslint:disable */
 /* eslint-disable */
+export enum Entities {
+    Person = "Person",
+    Subscriber = "Subscriber"
+}
+
 export class PersonInput {
     name: string;
     title: string;
@@ -18,6 +23,7 @@ export class SubscriberInput {
 }
 
 export class Person {
+    __typename?: 'Person';
     id: string;
     name: string;
     title: string;
@@ -25,24 +31,32 @@ export class Person {
 }
 
 export class Subscriber {
+    __typename?: 'Subscriber';
     id: string;
     email: string;
 }
 
 export abstract class IQuery {
+    __typename?: 'IQuery';
+
     abstract getPerson(): Person | Promise<Person>;
 
     abstract getSubscriber(): Subscriber | Promise<Subscriber>;
 }
 
 export abstract class IMutation {
+    __typename?: 'IMutation';
+
     abstract addPerson(person?: Nullable<PersonInput>): Person | Promise<Person>;
 
-    abstract addSubscriber(person?: Nullable<SubscriberInput>): Subscriber | Promise<Subscriber>;
+    abstract addSubscriber(subscriber?: Nullable<SubscriberInput>): Subscriber | Promise<Subscriber>;
 }
 
 export abstract class ISubscription {
-    abstract trackAnyChange(): Nullable<Person> | Promise<Nullable<Person>>;
+    __typename?: 'ISubscription';
+
+    abstract trackAnyChange(): TrackAnyChangeResult | Promise<TrackAnyChangeResult>;
 }
 
+export type TrackAnyChangeResult = Person | Subscriber;
 type Nullable<T> = T | null;

@@ -5,6 +5,7 @@ import { PubsubModule } from './pubsub/pubsub.module';
 import { PersonModule } from './domain/person/person.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import typeOrmConfig from './database/typeorm.config';
+import { SubscriberModule } from './domain/subscriber/subscriber.module';
 
 @Module({
   imports: [
@@ -13,17 +14,13 @@ import typeOrmConfig from './database/typeorm.config';
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       subscriptions: {
-        'subscriptions-transport-ws': {
-          onConnect: (ctx) => {
-            console.log('ws status => connected', ctx);
-            return true;
-          },
-        },
+        'subscriptions-transport-ws': true,
       },
     }),
     TypeOrmModule.forRoot(typeOrmConfig),
     PubsubModule,
     PersonModule,
+    SubscriberModule,
   ],
 })
 export class AppModule {}

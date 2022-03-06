@@ -4,6 +4,7 @@ import { ConfigService, ConfigModule } from '@nestjs/config';
 import { PubSub } from 'graphql-subscriptions';
 import { PubsubResolver } from './pubsub.resolver';
 import { PubSubService } from './pubsub.service';
+import { TrackAnyChangeResultResolver } from './track-any-change.resolver';
 
 export const PUB_SUB = 'PUB_SUB';
 
@@ -29,6 +30,7 @@ export const PUB_SUB = 'PUB_SUB';
     },
     PubsubResolver,
     PubSubService,
+    TrackAnyChangeResultResolver,
   ],
   exports: [PubSubService],
 })
