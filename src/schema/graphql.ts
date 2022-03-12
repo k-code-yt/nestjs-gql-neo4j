@@ -47,9 +47,13 @@ export abstract class IQuery {
 export abstract class IMutation {
     __typename?: 'IMutation';
 
-    abstract addPerson(person?: Nullable<PersonInput>): Person | Promise<Person>;
+    abstract addPerson(person: PersonInput): Person | Promise<Person>;
 
-    abstract addSubscriber(subscriber?: Nullable<SubscriberInput>): Subscriber | Promise<Subscriber>;
+    abstract addSubscriber(subscriber: SubscriberInput): Subscriber | Promise<Subscriber>;
+
+    abstract updatePerson(id: string, person: PersonInput): Person | Promise<Person>;
+
+    abstract updateSubscriber(id: string, subscriber: SubscriberInput): Subscriber | Promise<Subscriber>;
 }
 
 export abstract class ISubscription {

@@ -5,7 +5,6 @@ import { Entities, Person, TrackAnyChangeResult } from 'src/schema/graphql';
 export class TrackAnyChangeResultResolver {
   @ResolveField()
   __resolveType(value: TrackAnyChangeResult) {
-    console.log({ value });
     if (value.__typename === Entities.Person) {
       return Entities.Person;
     }

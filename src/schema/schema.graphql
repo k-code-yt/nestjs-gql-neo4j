@@ -29,7 +29,7 @@ input SubscriberInput {
 ### Union ###
 union TrackAnyChangeResult = Person | Subscriber
 
-### Queries ###
+### Queries ###`
 type Query {
   getPerson: Person!
   getSubscriber: Subscriber!
@@ -37,8 +37,10 @@ type Query {
 
 ### Mutations ###
 type Mutation {
-  addPerson(person: PersonInput): Person!
-  addSubscriber(subscriber: SubscriberInput): Subscriber!
+  addPerson(person: PersonInput!): Person!
+  addSubscriber(subscriber: SubscriberInput!): Subscriber!
+  updatePerson(id: String!, person: PersonInput!): Person!
+  updateSubscriber(id: String!, subscriber: SubscriberInput!): Subscriber!
 }
 
 ### Subscriptions ###

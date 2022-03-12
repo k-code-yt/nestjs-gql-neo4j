@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { Person } from 'src/schema/graphql';
 
-@Entity()
+@Entity('person')
 export class PersonEntity implements Person {
   @PrimaryGeneratedColumn('uuid')
   id: string;
