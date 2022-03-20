@@ -1,7 +1,4 @@
-input PersonInput {
-  name: String
-  age: Int
-}
+### TYPES ###
 
 type Person {
   id: Int!
@@ -9,6 +6,30 @@ type Person {
   age: Int
 }
 
+### INPUTS ###
+input PersonInput {
+  name: String
+  age: Int
+}
+
+### ENUMS ###
+#Entities
+enum Entities {
+  Actor
+  Director
+  Movie
+  Person
+  User
+}
+#Relations
+enum Relations {
+  ACTED_IN
+  DIRECTED
+  IN_GENRE
+  RATED
+}
+
+### QUERIES ###
 type Query {
   helloWorld: String
   getPerson(id: Int!): Person
@@ -18,6 +39,7 @@ type Query {
   userGenreMovieCountRec(userName: String!, limit: Int): String
 }
 
+### MUTATIONS ###
 type Mutation {
   createPerson(personInput: PersonInput!): Person!
   deletePerson(id: Int!): Boolean!

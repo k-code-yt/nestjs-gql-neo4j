@@ -7,6 +7,21 @@
 
 /* tslint:disable */
 /* eslint-disable */
+export enum Entities {
+    Actor = "Actor",
+    Director = "Director",
+    Movie = "Movie",
+    Person = "Person",
+    User = "User"
+}
+
+export enum Relations {
+    ACTED_IN = "ACTED_IN",
+    DIRECTED = "DIRECTED",
+    IN_GENRE = "IN_GENRE",
+    RATED = "RATED"
+}
+
 export class PersonInput {
     name?: Nullable<string>;
     age?: Nullable<number>;

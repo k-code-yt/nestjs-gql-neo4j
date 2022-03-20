@@ -25,6 +25,6 @@ import { UserModule } from './domain/nodes/user/user.module';
     UserModule,
   ],
   controllers: [],
-  providers: [AppResolver, UserResolver],
+  providers: [AppResolver],
 })
 export class AppModule {}
