@@ -6,6 +6,16 @@ type Person {
   age: Int
 }
 
+type UserGenreMovieCountRecResult {
+  genreName: String!
+  movieCount: Int!
+}
+
+type MovieRatingCountRecResult {
+  title: String!
+  popularity: Int!
+}
+
 ### INPUTS ###
 input PersonInput {
   name: String
@@ -17,6 +27,7 @@ input PersonInput {
 enum Entities {
   Actor
   Director
+  Genre
   Movie
   Person
   User
@@ -35,8 +46,14 @@ type Query {
   getPerson(id: Int!): Person
 
   #Reccomendations
-  movieRatingCountRec(movieName: String!, limit: Int): String
-  userGenreMovieCountRec(userName: String!, limit: Int): String
+  movieRatingCountRec(
+    movieName: String!
+    limit: Int
+  ): [MovieRatingCountRecResult]
+  userGenreMovieCountRec(
+    userName: String!
+    limit: Int
+  ): [UserGenreMovieCountRecResult]
 }
 
 ### MUTATIONS ###

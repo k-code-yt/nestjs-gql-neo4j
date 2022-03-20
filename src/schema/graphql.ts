@@ -10,6 +10,7 @@
 export enum Entities {
     Actor = "Actor",
     Director = "Director",
+    Genre = "Genre",
     Movie = "Movie",
     Person = "Person",
     User = "User"
@@ -33,14 +34,24 @@ export class Person {
     age?: Nullable<number>;
 }
 
+export class UserGenreMovieCountRecResult {
+    genreName: string;
+    movieCount: number;
+}
+
+export class MovieRatingCountRecResult {
+    title: string;
+    popularity: number;
+}
+
 export abstract class IQuery {
     abstract helloWorld(): Nullable<string> | Promise<Nullable<string>>;
 
     abstract getPerson(id: number): Nullable<Person> | Promise<Nullable<Person>>;
 
-    abstract movieRatingCountRec(movieName: string, limit?: Nullable<number>): Nullable<string> | Promise<Nullable<string>>;
+    abstract movieRatingCountRec(movieName: string, limit?: Nullable<number>): Nullable<Nullable<MovieRatingCountRecResult>[]> | Promise<Nullable<Nullable<MovieRatingCountRecResult>[]>>;
 
-    abstract userGenreMovieCountRec(userName: string, limit?: Nullable<number>): Nullable<string> | Promise<Nullable<string>>;
+    abstract userGenreMovieCountRec(userName: string, limit?: Nullable<number>): Nullable<Nullable<UserGenreMovieCountRecResult>[]> | Promise<Nullable<Nullable<UserGenreMovieCountRecResult>[]>>;
 }
 
 export abstract class IMutation {

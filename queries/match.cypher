@@ -42,13 +42,13 @@ LIMIT 25
 MATCH(user:User {name: "Jessica Sherman"})-[:RATED]->(movie:Movie)-[:IN_GENRE]->(genre:Genre)
 RETURN movie.title, genre.name ===> collect(genre.name)
 
-# Find movie GENRE I most often watch
+# Find movie GENRE a User most often watch
 MATCH(user:User {name: "Jessica Sherman"})-[:RATED]->(movie:Movie)-[inGenre:IN_GENRE]->(genre:Genre)
 RETURN genre.name, count(inGenre) as movieCount
 ORDER BY movieCount DESC
 LIMIT 10
 
-# Find movies simillar to the once I`ve rated
+# Find movies simillar to the once other Users rated
 MATCH(movie:Movie {title: "Snatch"})<-[initRated:RATED]-(user:User)-[recRating:RATED]->(recMovie:Movie)
 WHERE initRated.rating > 4 AND recRating.rating > 4 
 RETURN recMovie.title as title, COUNT(*) AS popularity
