@@ -7,6 +7,8 @@ import { Neo4jModule } from './neo4j/neo4j.module';
 import { MovieModule } from './domain/nodes/movie/movie.module';
 import { PersonModule } from './domain/nodes/person/person.module';
 import { PersonMovieRelationModule } from './domain/relations/person-movie-relation/person-movie-relation.module';
+import { UserResolver } from './domain/nodes/user/user.resolver';
+import { UserModule } from './domain/nodes/user/user.module';
 
 @Module({
   imports: [
@@ -20,8 +22,9 @@ import { PersonMovieRelationModule } from './domain/relations/person-movie-relat
     MovieModule,
     PersonModule,
     PersonMovieRelationModule,
+    UserModule,
   ],
   controllers: [],
-  providers: [AppResolver],
+  providers: [AppResolver, UserResolver],
 })
 export class AppModule {}

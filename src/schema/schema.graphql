@@ -12,10 +12,14 @@ type Person {
 type Query {
   helloWorld: String
   getPerson(id: Int!): Person
+
+  #Reccomendations
+  movieRatingCountRec(movieName: String!, limit: Int): String
+  userGenreMovieCountRec(userName: String!, limit: Int): String
 }
 
 type Mutation {
   createPerson(personInput: PersonInput!): Person!
-  updatePerson(id: Int!, personInput: PersonInput!): Person!
   deletePerson(id: Int!): Boolean!
+  updatePerson(id: Int!, personInput: PersonInput!): Person!
 }
