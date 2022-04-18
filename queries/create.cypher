@@ -1,11 +1,19 @@
-// # Create single / multiple node
-CREATE (n) / CREATE (n), (m)
-
-// # Create node with a label / multiple
-CREATE (n:Person) / CREATE (n:Person:Swedish)
+// # Create single 
+CREATE (n) / 
 
 // # Create with properties
 CREATE (n:Person {name: 'Andy', title: 'Developer'})
+
+// # Create multiple nodes
+CREATE (n), (m)
+
+// # Create node with a label / multiple
+CREATE (dev:Developer) / CREATE (n:Person:Developer)
+
+CREATE (Johny:Person:Developer {name: 'Johny'})-[:WORKS_AT]->(workplace:Workplace {title: 'Google'})-[:LOCATED_AT]->(city:City {name: 'Mountain View', state: 'California'})<-[:BORN_IN {year: '2000'}]
+RETURN Johny, workplace
+
+
 
 // # Create only relation
 MATCH
@@ -18,3 +26,6 @@ RETURN type(r)
 // # Create entire path
 CREATE p = (andy {name:'Andy'})-[:WORKS_AT]->(neo)<-[:WORKS_AT]-(michael {name: 'Michael'})
 RETURN p
+
+
+// # Propblems -> dublication
